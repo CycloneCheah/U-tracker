@@ -1,0 +1,64 @@
+
+
+html {
+    font-size: 10px;
+  }
+  @media(max-width: 460px) {
+    #main {
+      margin: 0px;
+    }
+  }
+  body {
+    background-color: hsl(74, 15%, 92%);
+    
+  }
+  #title {
+    text-align: center;
+    font-family: 'Open Sans';
+    font-weight: bold;
+    font-size: 4rem; 
+  }
+  #image {
+    display: block;
+    margin: 0 auto;
+    width: 550px;
+    max-width: 100%;
+    padding: 30px 0px 0px 0px;
+  }
+  #img-div {
+    background-color: white;
+    margin: -20px 0px 0px 0px;
+  }
+  #img-caption {
+    text-align: center;
+    padding: 0px 0px 10px 0px;
+    font-size: 2rem;
+  }
+  @media(max-width: 460px) {
+    #img-caption {
+      font-size: 1rem;
+    }
+  }
+  h2 {
+    padding: 90px 0px 0px 0px;
+    font-size: 3rem;
+  }
+  li {
+    font-size: 2rem;
+    text-align: left;
+  }
+  #klee {
+    padding: 15px 0px 30px 0px;
+    width: 300px;
+    height: 200px;
+  }
+  #titan {
+    width: 400px;
+    max-width: 100%;
+    padding: 15px 0px 0px 0px;
+  }
+  h3 {
+    text-align: center;
+    font-size: 2.5rem;
+    padding: 100px 0px 0px 0px;
+  }
