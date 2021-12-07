@@ -189,3 +189,10 @@ else // If data does not exsit in local storage
     // Update local storage 
     updateLocalStorage(APP_DATA_KEY, list);
 }
+
+// direct to main page 
+// params: N/A
+function backToMain() {
+    window.location.assign("index.html");
+}
+
