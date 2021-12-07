@@ -99,3 +99,34 @@ assignment1.updateCompletetion(50);
 console.log(assignment1.completedPercentage);
 console.log("Incomplete Percentage");
 console.log(assignment1.imcompletePercentage());
+
+function checkData(key) {
+    if (localStorage.getItem(key) !== null) {
+        return true; // If data exists in local storage at the provided key, return true
+    }
+    else {
+        return false; // Else, return false
+    }
+}
+
+function updateLocalStorage(key, data) {
+    if (typeof (data) == 'object') {
+        data = JSON.stringify(data); // Convert object typed data into string 
+    }
+    localStorage.setItem(key, data); // Update data into local storage
+}
+
+function retrieveData(key) {
+    let item = localStorage.getItem(key);
+    let data;
+    // Using try{...}catch(error){...}finally{...} to retrieve data from local storage
+    try {
+        data = JSON.parse(item);
+    }
+    catch (error) {
+        console.log(error);
+    }
+    finally {
+        return data;
+    }
+}
