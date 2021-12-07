@@ -196,3 +196,9 @@ function backToMain() {
     window.location.assign("index.html");
 }
 
+// direct to add.html 
+// params: N/A
+function directToAdd() {
+    window.location.assign("add.html");
+}
+

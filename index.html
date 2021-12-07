@@ -1,52 +1,92 @@
 <!DOCTYPE html>
 <html>
-    <title>Assignment Details</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <title>U-tracker</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-deep_purple.min.css" />
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-pink.min.css" />
+    <link rel="icon" type="image/png" href="https://cdn.discordapp.com/attachments/917613137031745559/917613280221093980/unknown.png"/>
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            background-color: beige;
+        }
+    </style>
+    <link rel="stylesheet" href="index.css"/>
+</head>
+
 <body>
-    <header>
-        <!--This is the logo and the login button-->
-        <div id="logo">
-            <img src="https://cdn.discordapp.com/attachments/917613137031745559/917613280221093980/unknown.png" alt="Our logo" width = 100px>
-        </div>
-        <div id ="login">
-            <button> Login </button>
-        </div>
-    </header>
-    <div class ="boxwrapper">
-        <div id="box3">
-            <div class="left">
-                <div id="assessments">
-                    Assessments List
-                </div>
-                <div id="recent-updates">
-                    Recent Updates
-                </div>
-                <div id= "completed"> 
-                    Completed List
-                </div>
-        </div>
-            <div class="middle-column">
-                <div id="box5">
-                    Graph
-                </div>
-                <div id="box6">
-                    Graph2  
+    <!-- Uses a transparent header that draws on top of the layout's background -->
+    <div class="demo-layout-transparent mdl-layout mdl-js-layout">
+        <header class="mdl-layout__header ">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title">U-tracker</span>&nbsp;&nbsp;&nbsp;
+                <img src="https://cdn.discordapp.com/attachments/917613137031745559/917613280221093980/unknown.png" alt="Our logo" width = 125px>
+                <div class="mdl-layout__header-row"></div>
+                <div class="mdl-layout__header-row"></div>
+                <span class="mdl-layout-title">
+                    <h2>Main Page</h2>
+                </span>
+                <!-- Title -->
+                <div class="mdl-layout-spacer"></div>
+                <!-- Raised button -->
+                <div id="directToAdd">
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                        onclick="directToAdd()">Add Assignment</button>
                 </div>
             </div>
-            <div class="right">
-                <div id="recommended">
-                    Recommended assessments to do 
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">Navigation</span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="index.html">Main Page</a>
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+            <div class="mdl-cell--12-col mdl-grid">
+                <div class="mdl-grid mdl-cell--4-col">
+                    <div class="mdl-data-table__cell--non-numeric" id="assignmentDetailsTable">
+                        <!-- table is placed here -->
+                    </div>
                 </div>
-                <div id="reminder">
-                    Reminders
+                <div class="mdl-cell mdl-cell--4-col mdl-cell--2-col-tablet">&nbsp;</div>
+            </div>
+        </main>
+        <div class ="boxwrapper">
+            <div id="box3">
+                <div class="left">
+                    <div id="assessments">
+                        Assessments List
+                    </div>
+                    <div id="recent-updates">
+                        Recent Updates
+                    </div>
+                    <div id= "completed"> 
+                        Completed List
+                    </div>
+            </div>
+                <div class="middle-column">
+                    <div id="box5">
+                        Graph
+                    </div>
+                    <div id="box6">
+                        Graph2  
+                    </div>
+                </div>
+                <div class="right">
+                    <div id="recommended">
+                        Recommended assessments to do 
+                    </div>
+                    <div id="reminder">
+                        Reminders
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="shared.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>
