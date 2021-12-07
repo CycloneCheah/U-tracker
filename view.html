@@ -1,0 +1,78 @@
+<html>
+
+<head>
+    <title>Assignment Details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-deep_purple.min.css" />
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <style>
+        .mdl-layout__header-row {
+            padding: 0 16px 0 16px;
+        }
+
+        a {
+            cursor: pointer;
+        }
+
+        h3 {
+            color: darkblue;
+        }
+
+        h5 {
+            color: blueviolet;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <!-- Title -->
+                <span class="mdl-layout-title">Assignment Details</span>
+                <!-- Add spacer, to align navigation to the right -->
+                <div class="mdl-layout-spacer"></div>
+                <!-- Navigation. We hide it in small screens. -->
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href="index.html">Back</a>
+                </nav>
+            </div>
+        </header>
+        <main class="mdl-layout__content">
+            <div class="page-content">
+                <div class="mdl-grid">
+                    <!-- left col for spacing -->
+                    <div class="mdl-cell mdl-cell--4-col"></div>
+                    <!-- center col for content -->
+                    <div class="mdl-cell mdl-cell--4-col">
+                        <h3>Assignment Information</h3>
+                        <!-- row 1: Student's full name -->
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--12-col">
+                                <h5>Weightage: <span id="fullName"></span></h5>
+                            </div>
+                        </div>
+                        <!-- row 2: Student's ID -->
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--12-col">
+                                <h5>Progress: <span id="studentId"></span></h5>
+                            </div>
+                        </div>
+                        <!-- row 3: Student's problem description -->
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--12-col">
+                                <h5>Burndown Chart: <span id="problem"></span></h5>
+                            </div>
+                        </div>
+                        <!-- right col for spacing -->
+                        <div class="mdl-cell mdl-cell--4-col"></div>
+                    </div>
+                </div>
+        </main>
+    </div>
+    <script src="js/shared.js"></script>
+    <script src="js/view.js"></script>
+</body>
+
+</html>
