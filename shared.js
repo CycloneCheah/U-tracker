@@ -61,7 +61,7 @@ class Assignment
     }
 
     get dueDate(){
-        return this._dueDate.toString();
+        return this._dueDate.toLocaleString();
     }
 
     get weightage(){
@@ -82,6 +82,14 @@ class Assignment
 
     imcompletePercentage(){
         return 100 - this._completedPercentage;
+    }
+
+    fromData(assignmentDataObject) {
+        // Assigning object properties of studentDataObject to the corresponding attributes
+        this._title = assignmentDataObject._title;
+        this._dueDate.toLocaleString() = assignmentDataObject._dueDate.toLocaleString();
+        this._weightage = assignmentDataObject._weightage;
+        this._completedPercentage = assignmentDataObject._completedPercentage;
     }
 }
 
