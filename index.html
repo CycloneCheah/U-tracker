@@ -29,27 +29,23 @@
         }
 
         .left {
-            flex-grow: 1;
+            flex-grow: 1.3;
             display: flex;
             flex-direction: column;
         }
         #assessments {
-            flex-grow: 1;
             border: solid 1px orange
         }
         #recent-updates {
-            flex-grow: 1;
             border: solid 1px green
         }
         #completed {
-            flex-grow: 1;
             border: solid 1px red
         }
         .middle-column {
             flex-grow: 2.5;
             display: flex;
             flex-direction: column;
-  
         }
   
         .middle-column div {
@@ -62,9 +58,15 @@
             margin-top: 8px
         }
         .right {
-            
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
         #recommended {
+            flex-grow: 1;
+            border: solid 1px black
+        }
+        #reminder {
             flex-grow: 0.7;
             border: solid 1px black
         }
@@ -105,7 +107,7 @@
                     Recommended assessments to do 
                 </div>
                 <div id="reminder">
-
+                    Reminders
                 </div>
             </div>
         </div>
