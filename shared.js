@@ -116,7 +116,7 @@ class AssessmentList
     }
 
     removeAssignment(index) {
-        this._queue.splice(studentIndex, 1); // Removing a student from the queue
+        this._queue.splice(index, 1); // Removing a student from the queue
     }
 
     getAssignment(index) {
