@@ -1,42 +1,42 @@
 "use strict";
-// Key for local storage
+// Keys for local storage
 const APP_DATA_KEY = "AssessmentListAppData";
 
 
 // Class for date objects
-class Date
-{
-    /* Instance variables:
-    day     int
-    month   int
-    year    int */
+// class Date
+// {
+//     /* Instance variables:
+//     day     int
+//     month   int
+//     year    int */
 
-    // Constructor
-    constructor(day, month, year){
-        this._day = day;
-        this._month = month;
-        this._year = year;
-    }
+//     // Constructor
+//     constructor(day, month, year){
+//         this._day = day;
+//         this._month = month;
+//         this._year = year;
+//     }
 
-    // Getters
-    get day(){
-        return this._day;
-    }
+//     // Getters
+//     get day(){
+//         return this._day;
+//     }
 
-    get month(){
-        return this._month;
-    }
+//     get month(){
+//         return this._month;
+//     }
 
-    get year(){
-        return this._year;
-    }
+//     get year(){
+//         return this._year;
+//     }
 
-    // Methods
-    toString() {
-        // Returns date in string
-        return this._day.toString() + " / " + this._month.toString() + " / " + this._year.toString();
-    }
-}
+//     // Methods
+//     toString() {
+//         // Returns date in string
+//         return this._day.toString() + " / " + this._month.toString() + " / " + this._year.toString();
+//     }
+// }
 
 
 class Assignment
@@ -186,6 +186,6 @@ if (checkData(APP_DATA_KEY)) // If data exsits in local storage
 }
 else // If data does not exsit in local storage
 {
-    // Up local storage using Task 3 function
+    // Update local storage 
     updateLocalStorage(APP_DATA_KEY, list);
 }

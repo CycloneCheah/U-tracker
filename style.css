@@ -1,0 +1,55 @@
+.demo-layout-transparent {
+    background: #ffffff
+  }
+
+
+.demo-layout-transparent .mdl-layout__header,
+.demo-layout-transparent .mdl-layout__drawer-button {
+    /* This background is dark, so we set text to white. Use 87% black instead if
+          your background is light. */
+    color: black;
+  }
+
+div.center {
+    display: block;
+    margin: auto;
+    text-align: center;
+  }
+  body {
+    background-color: white;
+  }
+
+  .map-overlay {
+    position: absolute;
+    top: 70px;
+    left: 130px;
+    padding: 10px;
+    z-index: 1;
+    overflow-y: auto;
+    max-width: 400px;
+}
+
+.map-instructions {
+    position: absolute;
+    bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 10px;
+    z-index: 1;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.centerText {
+  text-align:center;
+}
+
+.fullWidth {
+  width: 100%;
+}
