@@ -1,4 +1,7 @@
 "use strict";
+// Key for local storage
+const APP_DATA_KEY = "AssessmentListAppData";
+
 
 // Class for date objects
 class Date
@@ -94,19 +97,56 @@ class Assignment
 }
 
 
+class AssessmentList 
+{
+    // Constructor
+    constructor() {
+        this._queue = [];
+    }
 
-let assignment1 = new Assignment("PornHub", 8, 12, 2021, 50);
-console.log(assignment1.title);
-console.log(assignment1.dueDate);
-console.log(assignment1.weightage);
-console.log("Completed Percentage");
-console.log(assignment1.completedPercentage);
-assignment1.updateCompletetion(60);
-console.log(assignment1.completedPercentage);
-assignment1.updateCompletetion(50);
-console.log(assignment1.completedPercentage);
-console.log("Incomplete Percentage");
-console.log(assignment1.imcompletePercentage());
+    // Accessor
+    get queue(){
+        return this._queue;
+    }
+    // Methods
+    addAssignment(title, dueDay, dueMonth, dueYear, weightage) {
+        let newStudent = new Student(title, dueDay, dueMonth, dueYear, weightage); // Create a new Student class instance 
+        this._queue.push(newStudent);
+    }
+
+    removeAssignment(index) {
+        this._queue.splice(studentIndex, 1); // Removing a student from the queue
+    }
+
+    getAssignment(index) {
+        return this._queue[index]; // Accessing Student instance in the queue
+    }
+
+    fromData(sessionDataObject) {
+        this._queue = []; // Set .queue into an empty array 
+        let sessionData = sessionDataObject._queue; // sessionData ← _queue property of sessionDataObject
+        
+        for (let i = 0; i < sessionData.length; i++) {
+            let assignment = new Assignment(); // Create a new Student class instance
+            assignment.fromData(sessionData[i]); // Retrieving data for each student
+            this._queue[i].push(student); // Adding students into the sub-queue
+        }
+    }
+}
+
+
+// let assignment1 = new Assignment("PornHub", 8, 12, 2021, 50);
+// console.log(assignment1.title);
+// console.log(assignment1.dueDate);
+// console.log(assignment1.weightage);
+// console.log("Completed Percentage");
+// console.log(assignment1.completedPercentage);
+// assignment1.updateCompletetion(60);
+// console.log(assignment1.completedPercentage);
+// assignment1.updateCompletetion(50);
+// console.log(assignment1.completedPercentage);
+// console.log("Incomplete Percentage");
+// console.log(assignment1.imcompletePercentage());
 
 function checkData(key) {
     if (localStorage.getItem(key) !== null) {
@@ -137,4 +177,15 @@ function retrieveData(key) {
     finally {
         return data;
     }
+}
+
+let list = new AssessmentList(); // consultSession ← new Session instance 
+if (checkData(APP_DATA_KEY)) // If data exsits in local storage
+{
+    list.fromData(retrieveData(APP_DATA_KEY));
+}
+else // If data does not exsit in local storage
+{
+    // Up local storage using Task 3 function
+    updateLocalStorage(APP_DATA_KEY, list);
 }
