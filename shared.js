@@ -1,5 +1,6 @@
 "use strict";
 // Keys for local storage
+const ASSIGNMENT_INDEX_KEY = "assignmentIndex";
 const APP_DATA_KEY = "AssessmentListAppData";
 
 
