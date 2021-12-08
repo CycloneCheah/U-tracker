@@ -10,6 +10,13 @@
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <!-- for the chart -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+    <script type = "text/javascript" src = "https://www.gstatic.com/charts/loader.js">
+    </script>
+    <script type = "text/javascript" src = "https://www.google.com/jsapi">
+    </script>
+    <script type = "text/javascript">
+       google.charts.load('current', {packages: ['corechart']});     
+    </script>
     <style>
         body {
             background-color: beige;
@@ -32,10 +39,14 @@
             height: 150%;
             /* float: right; */
         }
-
+        
+        #myChart {
+            border: solid 1px orange
+        }
         #assessmentProgressGraph{
             /* float: left; */
-        }
+            border: solid 1px orange
+        } 
 
 
     </style>
@@ -71,11 +82,11 @@
         </div>
         <main class="mdl-layout__content">
             <div class="mdl-cell--12-col mdl-grid">
-                <!-- <div id="assessmentProgressGraph">
-                    <p>I'm not gay</p>
-                    <canvas id="myChart">FUQ</canvas>
-                    <p id="meow">nO FUQ</p>
-                </div> -->
+                <div id="assessmentProgressGraph" style = "width: 550px; height: 400px; margin: 0 auto">
+                    <p>top</p>
+                    <canvas id="myChart"></canvas>
+                    <p id="meow">bottom</p>
+                </div>
                 <div id="assignmentDetailsTable">
                     <!-- table is placed here -->
                     <table>
@@ -110,6 +121,45 @@
             </div>
         </main>
     </div>
+    <script>
+        // Access chart tag
+        let myChart = document.getElementById("myChart").getContext('2d');
+
+        // Prepare the values of the data
+        let days = [1, 2, 3, 4, 5];
+        let yourProgress = [100, 70, 65, 30, 0];
+        let expectedProgress = [100, 75, 50, 25, 0];
+
+        // Prepare how and what data is presented
+        let data = {
+            labels: days,
+            datasets: [{
+                label: 'Your Progress',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: yourProgress,
+                stepped: true
+            },
+            {
+                label: 'Expected Progress',
+                backgroundColor: 'rgb(255, 0, 0)',
+                borderColor: 'rgb(255, 0, 0)',
+                data: expectedProgress,
+                stepped: true
+            }]
+        };
+
+        // Type of chart and the configurations
+        const config = {
+            type: 'line',
+            data: data,
+            options: {}
+        };
+
+        // Create and attach the chart
+        const theChart = new Chart(myChart, config);
+        notmeow.innerHTML = "notmeow";
+    </script>
     <script src="shared.js"></script>
     <script src="view.js"></script>
 </body>
