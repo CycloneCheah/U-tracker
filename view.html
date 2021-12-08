@@ -8,10 +8,36 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-pink.min.css" />
     <link rel="icon" type="image/png" href="https://cdn.discordapp.com/attachments/917613137031745559/917613280221093980/unknown.png"/>
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <!-- for the chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
     <style>
         body {
             background-color: beige;
         }
+
+        .leftmostColumn {
+            font-weight: bold;
+            padding-right:60px;
+            border-right-color: rgb(192, 192, 192);
+        }
+
+        .individualTableRow td{
+            background-color: rgb(192, 192, 192);
+            padding-top: 3%;
+            padding-left: 5%;
+        }
+        
+        #assignmentDetailsTable table {
+            width: 150%;
+            height: 150%;
+            /* float: right; */
+        }
+
+        #assessmentProgressGraph{
+            /* float: left; */
+        }
+
+
     </style>
     <link rel="stylesheet" href="styles.css"/>
 </head>
@@ -26,7 +52,7 @@
                 <div class="mdl-layout__header-row"></div>
                 <div class="mdl-layout__header-row"></div>
                 <span class="mdl-layout-title">
-                    <h2>Assignment Details</h2>
+                    <!-- <h2>Assignment Details</h2> -->
                 </span>
                 <!-- Title -->
                 <div class="mdl-layout-spacer"></div>
@@ -45,12 +71,42 @@
         </div>
         <main class="mdl-layout__content">
             <div class="mdl-cell--12-col mdl-grid">
-                <div class="mdl-grid mdl-cell--4-col">
-                    <div class="mdl-data-table__cell--non-numeric" id="assignmentDetailsTable">
-                        <!-- table is placed here -->
-                    </div>
+                <!-- <div id="assessmentProgressGraph">
+                    <p>I'm not gay</p>
+                    <canvas id="myChart">FUQ</canvas>
+                    <p id="meow">nO FUQ</p>
+                </div> -->
+                <div id="assignmentDetailsTable">
+                    <!-- table is placed here -->
+                    <table>
+                        <!-- <thead>
+                            <tr>
+                                <th> Area 51</th>
+                                <th> Heaven</th>
+                            </tr>
+                        </thead> -->
+                        <tbody>
+                            <tr class="individualTableRow"> 
+                                <td class="leftmostColumn">Assessment</td>
+                                <td id="tableTitle"></td>
+                            </tr>
+                            <tr class="individualTableRow"> 
+                                <td class="leftmostColumn">Due Date</td>
+                                <td id="tableDueDate"></td>
+                            </tr>
+                            <tr class="individualTableRow" > 
+                                <td class="leftmostColumn">Weightage</td>
+                                <td id="tableWeightage"></td>
+                            </tr>
+                            <tr class="individualTableRow"> 
+                                <td class="leftmostColumn">Completed</td>
+                                <td id="tablePercentageCompleted"></td>
+                            </tr>
+                        </tbody>
+                        
+                    </table>
                 </div>
-                <div class="mdl-cell mdl-cell--4-col mdl-cell--2-col-tablet">&nbsp;</div>
+                
             </div>
         </main>
     </div>

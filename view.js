@@ -2,21 +2,68 @@
 /*
 Description: Contains global codes that will run when view.js is loaded
 */
-// Create references for user input elements (fullName, studentId, problem)
-let fNameRef = document.getElementById("fullName");
-let studentIdRef = document.getElementById("studentId");
-let problemRef = document.getElementById("problem");
+
+
+// For data in the table
+
+// Access the cells by Id
+let tableTitle = document.getElementById("tableTitle");
+let tableDueDate = document.getElementById("tableDueDate");
+let tableWeightage = document.getElementById("tableWeightage");
+let tablePercentageCompleted = document.getElementById("tablePercentageCompleted");
+
+
 // Retrieve stored indexes from local storage 
-let studentIndex = localStorage.getItem(STUDENT_INDEX_KEY);
-let queueIndex = localStorage.getItem(STUDENT_QUEUE_KEY);
+let assignmentIndex = localStorage.getItem(ASSIGNMENT_INDEX_KEY);
+let assignment = list.getAssignment(assignmentIndex);
+// assignment = new Assignment("PornHub", 8, 12, 2021, 50);
 
-let student = new Assignment(); // Create a new student instance
 
-/* Assign information retrieved from local storage to the new student instance
-using getStudent method */
-student = consultSession.getStudent(studentIndex, queueIndex);
+tableTitle.innerHTML = assignment.title;
+tableDueDate.innerHTML = assignment.dueDate;
+tableWeightage.innerHTML = assignment.weightage;
+tablePercentageCompleted.innerHTML = assignment.completedPercentage + "%";
 
-// Display HTML content according to the attributes of the Student Class Instance
-fNameRef.innerText = `${student.fullName}`;
-studentIdRef.innerText = `${student.studentId}`;
-problemRef.innerText = `${student.problem}`;
+// let notmeow = document.getElementById("notmeow");
+
+// // For data of the graph
+
+// // Access chart tag
+// let myChart = document.getElementById("myChart").getContext('2d');
+
+// // Prepare the values of the data
+// let days = [1, 2, 3, 4, 5];
+// let yourProgress = [100, 70, 65, 30, 0];
+// let expectedProgress = [100, 75, 50, 25, 0];
+
+// // Prepare how and what data is presented
+// let data = {
+//     labels: days,
+//     datasets: [{
+//         label: 'Your Progress',
+//         backgroundColor: 'rgb(255, 99, 132)',
+//         borderColor: 'rgb(255, 99, 132)',
+//         data: yourProgress,
+//         stepped: true
+//     },
+//     {
+//         label: 'Expected Progress',
+//         backgroundColor: 'rgb(255, 0, 0)',
+//         borderColor: 'rgb(255, 0, 0)',
+//         data: expectedProgress,
+//         stepped: true
+//     }]
+// };
+
+
+// // Type of chart and the configurations
+// // const config = {
+// //     type: 'line',
+// //     data: data,
+// //     options: {}
+// // };
+
+// // // Create and attach the chart
+// // const theChart = new Chart(myChart, config);
+// // notmeow.innerHTML = "notmeow";
+

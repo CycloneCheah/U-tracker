@@ -4,7 +4,7 @@ const ASSIGNMENT_INDEX_KEY = "assignmentIndex";
 const APP_DATA_KEY = "AssessmentListAppData";
 
 
-// Class for date objects
+// // Class for date objects
 // class Date
 // {
 //     /* Instance variables:
