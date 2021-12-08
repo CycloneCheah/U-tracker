@@ -60,29 +60,22 @@ function displayCurrentList(data) {
       let output = `<table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp">
     <thead>
       <tr>
-        <th class="mdl-data-table__cell--non-numeric">Country</th>
-        <th>Start</th>
-        <th>End</th>
-        <th>Stops</th>
-        <th>Date</th>
+        <th class="mdl-data-table__cell--non-numeric">Completed List</th>
       </tr>
     </thead>
     <tbody>
     `;
   // printing each trip
-      for (let i = 0; i < trips.length; i++) {
-        let tripDate = trips[i].date;
+    for (let i = 0; i < data.length; i++) {
+        let assignmentDate = data[i].date;
   // test if it is an upcoming or past trip
-        if (tripDate < currentDateString) {
+        if (assignmentDate < currentDateString) {
   
           console.log(currentDate);
   
           output += `<tr>
                 <td class="mdl-data-table__cell--non-numeric">${trips[i].country}</td>
-                <td>${trips[i].startAirport}</td>
-                <td>${trips[i].endAirport}</td>
-                <td>${(trips[i].flights.length) - 1}</td>
-                <td>${tripDate}</td>
+                <td>${data[i].title}</td>
                 <td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick = "viewTrip(${i})">View on map</button></td>
                 <td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick = "removeTrip(${i})">Delete trip</button></td>
               </tr>
@@ -97,4 +90,4 @@ function displayCurrentList(data) {
     }
   
   // code to run function
-  displayCompletedList();
+  displayCompletedList(list._queue);
