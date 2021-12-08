@@ -3,43 +3,6 @@
 const ASSIGNMENT_INDEX_KEY = "assignmentIndex";
 const APP_DATA_KEY = "listAppData";
 
-
-// // Class for date objects
-// class Date
-// {
-//     /* Instance variables:
-//     day     int
-//     month   int
-//     year    int */
-
-//     // Constructor
-//     constructor(day, month, year){
-//         this._day = day;
-//         this._month = month;
-//         this._year = year;
-//     }
-
-//     // Getters
-//     get day(){
-//         return this._day;
-//     }
-
-//     get month(){
-//         return this._month;
-//     }
-
-//     get year(){
-//         return this._year;
-//     }
-
-//     // Methods
-//     toString() {
-//         // Returns date in string
-//         return this._day.toString() + " / " + this._month.toString() + " / " + this._year.toString();
-//     }
-// }
-
-
 class Assignment
 {   /* Base class for the 2 ways of splitting the assignment
 
@@ -51,10 +14,10 @@ class Assignment
     */
 
     // Constructor 
-    constructor(title, dueDay, dueMonth, dueYear, weightage) {
+    constructor(title, dueDate, weightage) {
         // Assigning parameters to the corresponding attributes
         this._title = title;
-        this._dueDate = new Date(dueDay, dueMonth, dueYear);
+        this._dueDate = dueDate;
         this._weightage = weightage;
         this._completedPercentage = 0;
     }
@@ -65,7 +28,7 @@ class Assignment
     }
 
     get dueDate(){
-        return this._dueDate.toLocaleString();
+        return this._dueDate;
     }
 
     get weightage(){
@@ -74,6 +37,10 @@ class Assignment
 
     get completedPercentage(){
         return this._completedPercentage;
+    }
+
+    set dueDate(newDueDate) {
+        this._dueDate = newDueDate;
     }
 
     // Method
@@ -91,7 +58,7 @@ class Assignment
     fromData(assignmentDataObject) {
         // Assigning object properties of studentDataObject to the corresponding attributes
         this._title = assignmentDataObject._title;
-        this._dueDate.toLocaleString() = assignmentDataObject._dueDate.toLocaleString();
+        this._dueDate = assignmentDataObject._dueDate;
         this._weightage = assignmentDataObject._weightage;
         this._completedPercentage = assignmentDataObject._completedPercentage;
     }
@@ -110,9 +77,9 @@ class List
         return this._queue;
     }
     // Methods
-    addAssignment(title, dueDay, dueMonth, dueYear, weightage) {
-        let newStudent = new Student(title, dueDay, dueMonth, dueYear, weightage); // Create a new Student class instance 
-        this._queue.push(newStudent);
+    addAssignment(title, dueDate, weightage) {
+        let newAssignment = new Assignment(title, dueDate, weightage); // Create a new Student class instance 
+        this._queue.push(newAssignment);
     }
 
     removeAssignment(index) {
@@ -123,14 +90,14 @@ class List
         return this._queue[index]; // Accessing Student instance in the queue
     }
 
-    fromData(sessionDataObject) {
+    fromData(listDataObject) {
         this._queue = []; // Set .queue into an empty array 
-        let sessionData = sessionDataObject._queue; // sessionData ← _queue property of sessionDataObject
+        let listData = listDataObject._queue; // sessionData ← _queue property of sessionDataObject
         
-        for (let i = 0; i < sessionData.length; i++) {
+        for (let i = 0; i < listData.length; i++) {
             let assignment = new Assignment(); // Create a new Student class instance
-            assignment.fromData(sessionData[i]); // Retrieving data for each student
-            this._queue[i].push(student); // Adding students into the sub-queue
+            assignment.fromData(listData[i]); // Retrieving data for each student
+            this._queue[i].push(assignment); // Adding students into the sub-queue
         }
     }
 }
