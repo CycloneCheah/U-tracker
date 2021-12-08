@@ -68,7 +68,10 @@
                 <!-- Title -->
                 <div class="mdl-layout-spacer"></div>
                 <!-- Raised button -->
-                
+                <div id="backOnMain">
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                        onclick="backToMain()">Back</button>
+                </div>
             </div>
         </header>
         <div class="mdl-layout__drawer">
@@ -79,37 +82,29 @@
         </div>
         <main class="mdl-layout__content">
             <div class="mdl-cell--12-col mdl-grid">
-                <div id="assignmentDetailsTable">
-                    <!-- table is placed here -->
-                    <table>
-                        <!-- <thead>
-                            <tr>
-                                <th> Area 51</th>
-                                <th> Heaven</th>
-                            </tr>
-                        </thead> -->
-                        <tbody>
-                            <tr class="individualTableRow"> 
-                                <td class="leftmostColumn">Assessment</td>
-                                <td id="tableTitle"></td>
-                            </tr>
-                            <tr class="individualTableRow"> 
-                                <td class="leftmostColumn">Due Date</td>
-                                <td id="tableDueDate"></td>
-                            </tr>
-                            <tr class="individualTableRow" > 
-                                <td class="leftmostColumn">Weightage</td>
-                                <td id="tableWeightage"></td>
-                            </tr>
-                            <tr class="individualTableRow"> 
-                                <td class="leftmostColumn">Completed</td>
-                                <td id="tablePercentageCompleted"></td>
-                            </tr>
-                        </tbody>
-                        
-                    </table>
+                <div class="mdl-grid mdl-cell--4-col">
+                    <div class="mdl-data-table__cell--non-numeric" id="assignmentDetailsTable">
+                        <!-- table is placed here -->
+                    </div>
                 </div>
-                
+                <div class="mdl-cell mdl-cell--4-col mdl-cell--2-col-tablet">&nbsp;</div>
+            </div>
+            <br><br>
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--4-col mdl-cell--2-col-tablet mdl-cell--hide-phone"></div>
+                <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+                    <button
+                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                        onclick="addAssignment()">
+                        VIEW GRAPH
+                    </button>
+                    <button
+                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                        onclick="addAssignment()">
+                        UPDATE PROGRESS
+                    </button>
+                </div>
+                <div class="mdl-cell mdl-cell--4-col mdl-cell--2-col-tablet mdl-cell--hide-phone"></div>
             </div>
         </main>
     </div>
