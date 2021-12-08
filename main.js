@@ -114,11 +114,8 @@ function view(index) {
     for (let i = 0; i < data.length; i++) {
   // test if it is an upcoming or past trip
           output += `<tr>
-                <td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick = "view(${i})">View assignment details</button></td>
-                <td class="mdl-data-table__cell--non-numeric">${data[i].title}</td>
-                <td>${data[i].title}</td>
-                <td>${data[i].title}</td>
-                
+                <td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick = "view(${i})">View</button></td>
+                <td class="mdl-data-table__cell--non-numeric">${data[i].title}<br>Due Date: ${data[i].dueDate.substring(0,10)}</td>
               </tr> `
         }
       // close the table
@@ -129,3 +126,13 @@ function view(index) {
     }
   // code to run function
   displayList(list._queue);
+
+  function recommendedlist() {
+    let rList = document.getElementById("recommended");
+
+    // access current date and deadline of assignment, find how long is it and put in an array according to position of the assignments
+    // compare to weightage and split accordingly
+    // Algorithm of splitting:
+    // 
+
+  }
