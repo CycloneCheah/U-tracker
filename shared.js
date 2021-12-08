@@ -90,6 +90,10 @@ class List
         return this._queue[index]; // Accessing Student instance in the queue
     }
 
+    setAssignment(index, assignment) {
+        this._queue[index] = assignment;
+    }
+
     fromData(listDataObject) {
         this._queue = []; // Set .queue into an empty array 
         let listData = listDataObject._queue; // sessionData ← _queue property of sessionDataObject
