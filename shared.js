@@ -174,3 +174,7 @@ function directToAdd() {
     window.location.assign("add.html");
 }
 
+function backToView() {
+    window.location.assign("view.html");
+}
+
