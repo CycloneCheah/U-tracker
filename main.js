@@ -129,3 +129,13 @@ function view(index) {
     }
   // code to run function
   displayList(list._queue);
+
+  function recommendedlist() {
+    let rList = document.getElementById("recommended");
+
+    // access current date and deadline of assignment, find how long is it and put in an array according to position of the assignments
+    // compare to weightage and split accordingly
+    // Algorithm of splitting:
+    // 
+
+  }
