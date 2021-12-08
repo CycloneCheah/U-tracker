@@ -102,10 +102,6 @@ function view(index) {
       <tr>
         <th class="mdl-data-table__cell--non-numeric">View Details</th>
         <th class="mdl-data-table__cell--non-numeric">Assessment List</th>
-        <th class="mdl-data-table__cell--non-numeric">Completed List</th>
-        <th class="mdl-data-table__cell--non-numeric">Recommendation List</th>
-        <th class="mdl-data-table__cell--non-numeric">Recent Updates</th>
-        <th class="mdl-data-table__cell--non-numeric">Reminders</th>
       </tr>
     </thead>
     <tbody>
@@ -126,6 +122,120 @@ function view(index) {
     }
   // code to run function
   displayList(list._queue);
+
+  function displayList2(data) {
+
+    let listTableRef2 = document.getElementById('listTable2');
+    // print table to html
+    // initial table code
+    let output = `<table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">Completed List</th>
+      </tr>
+    </thead>
+    <tbody>
+    `;
+  // printing each assignment 
+    for (let i = 0; i < data.length; i++) {
+  // test if it is an upcoming or past trip
+          output += `<tr>
+                <td class="mdl-data-table__cell--non-numeric">${data[i].title}<br>Due Date: ${data[i].dueDate.substring(0,10)}</td>
+              </tr> `
+        }
+      // close the table
+      output += `</tbody>
+      </table>`
+      // return results
+      listTableRef2.innerHTML = output;
+    }
+  
+    function displayList2(data) {
+
+    let listTableRef2 = document.getElementById('listTable2');
+    // print table to html
+    // initial table code
+    let output = `<table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">Completed List</th>
+      </tr>
+    </thead>
+    <tbody>
+    `;
+  // printing each assignment 
+    for (let i = 0; i < data.length; i++) {
+  // test if it is an upcoming or past trip
+          output += `<tr>
+          <td class="mdl-data-table__cell--non-numeric">${data[i].title}<br>Due Date: ${data[i].dueDate.substring(0,10)}</td>
+              </tr> `
+        }
+      // close the table
+      output += `</tbody>
+      </table>`
+      // return results
+      listTableRef2.innerHTML = output;
+    }
+  // code to run function
+  displayList2(list._queue);
+
+  function displayList3(data) {
+
+    let listTableRef3 = document.getElementById('listTable3');
+    // print table to html
+    // initial table code
+    let output = `<table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">Recommendation List</th>
+      </tr>
+    </thead>
+    <tbody>
+    `;
+  // printing each assignment 
+    for (let i = 0; i < data.length; i++) {
+  // test if it is an upcoming or past trip
+          output += `<tr>
+                <td class="mdl-data-table__cell--non-numeric">${data[i].title}</td>
+              </tr> `
+        }
+      // close the table
+      output += `</tbody>
+      </table>`
+      // return results
+      listTableRef3.innerHTML = output;
+    }
+  // code to run function
+  displayList3(list._queue);
+
+  function displayList4(data) {
+
+    let listTableRef4 = document.getElementById('listTable4');
+    // print table to html
+    // initial table code
+    let output = `<table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">Recent Updates</th>
+      </tr>
+    </thead>
+    <tbody>
+    `;
+  // printing each assignment 
+    for (let i = 0; i < data.length; i++) {
+  // test if it is an upcoming or past trip
+          output += `<tr>
+                <td class="mdl-data-table__cell--non-numeric">${data[i].title}</td>
+              </tr> `
+        }
+      // close the table
+      output += `</tbody>
+      </table>`
+      // return results
+      listTableRef4.innerHTML = output;
+    }
+  // code to run function
+  displayList4(list._queue);
 
   function recommendedlist() {
     let rList = document.getElementById("recommended");
