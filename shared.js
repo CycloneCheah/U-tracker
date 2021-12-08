@@ -1,7 +1,7 @@
 "use strict";
 // Keys for local storage
 const ASSIGNMENT_INDEX_KEY = "assignmentIndex";
-const APP_DATA_KEY = "AssessmentListAppData";
+const APP_DATA_KEY = "listAppData";
 
 
 // // Class for date objects
@@ -98,7 +98,7 @@ class Assignment
 }
 
 
-class AssessmentList 
+class List 
 {
     // Constructor
     constructor() {
@@ -180,7 +180,7 @@ function retrieveData(key) {
     }
 }
 
-let list = new AssessmentList(); // consultSession ← new Session instance 
+let list = new List(); // consultSession ← new Session instance 
 if (checkData(APP_DATA_KEY)) // If data exsits in local storage
 {
     list.fromData(retrieveData(APP_DATA_KEY));
