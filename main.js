@@ -116,9 +116,7 @@ function view(index) {
           output += `<tr>
                 <td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick = "view(${i})">View assignment details</button></td>
                 <td class="mdl-data-table__cell--non-numeric">${data[i].title}</td>
-                <td>${data[i].title}</td>
-                <td>${data[i].title}</td>
-                
+                // <td>${data[i].title}</td>
               </tr> `
         }
       // close the table
