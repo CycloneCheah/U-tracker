@@ -55,6 +55,7 @@ var addAssignment = function(){
         list.addAssignment(title, dueDate, weightage);
         updateLocalStorage(APP_DATA_KEY, list);
         alert("Your assessment has been added to the assessment list");
+        window.location.assign("test.html");
     }
 
     else {
