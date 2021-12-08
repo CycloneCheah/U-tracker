@@ -97,7 +97,7 @@ class List
         for (let i = 0; i < listData.length; i++) {
             let assignment = new Assignment(); // Create a new Student class instance
             assignment.fromData(listData[i]); // Retrieving data for each student
-            this._queue[i].push(assignment); // Adding students into the sub-queue
+            this._queue.push(assignment); // Adding students into the sub-queue
         }
     }
 }
