@@ -6,8 +6,8 @@ let assignmentIndex = localStorage.getItem(ASSIGNMENT_INDEX_KEY);
 var checkWeightage = function(weightage){
     // Check if given weightage is valid
     try{
-        parseFloat(weightage);
-        return weightage >= 0  && true;
+        weightage = parseFloat(weightage);
+        return weightage > 0 && weightage <= 100;
     }
     catch{
         return false;
@@ -63,12 +63,12 @@ var addAssignment = function(){
         {
             titleMsg.innerText = "Title title input is invalid"; // Display appropriate error message on HTML page
         }
-        if (!checkWeightage(weightage)) // Check if weightage input is blank or studentId does not follow the right format
+        if (!checkWeightage(weightage) || weightage <= 0 || weightage > 100) // Check if weightage input is blank or studentId does not follow the right format
         {
             weightageMsg.innerText = "Weightage input is invalid"; // Display appropriate error message on HTML page
         }
         // To print error message when wrong date input
-        if(dueDate == 0 || new Date(dueDate).getTime() < new Date().getTime() )
+        if(dueDate == 0 || new Date(dueDate).getTime() < new Date().getTime())
         {
             dueDateMsg.innerText = "Please select a valid date";
         }

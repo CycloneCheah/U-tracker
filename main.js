@@ -53,7 +53,7 @@ function displayList(data) {
   for (let i = 0; i < data.length; i++) {
     if (data[i].completedPercentage >= 0 && data[i].completedPercentage < 100) {
       output += `<tr>
-                <td class="mdl-data-table__cell--non-numeric">${data[i].title}<br>Weightage: ${data[i].weightage}<br>Due Date: ${data[i].dueDate.substring(0, 10)}</td>
+                <td class="mdl-data-table__cell--non-numeric">${data[i].title}<br>Weightage: ${data[i].weightage}%<br>Due Date: ${data[i].dueDate.substring(0, 10)}</td>
                 <td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick = "view(${i})">View</button></td>
               </tr> `
     }
@@ -85,7 +85,7 @@ function displayList2(data) {
   for (let i = 0; i < data.length; i++) {
     if (data[i].completedPercentage == 100) {
       output += `<tr>
-          <td class="mdl-data-table__cell--non-numeric">${data[i].title}<br>Weightage: ${data[i].weightage}<br>Due Date: ${data[i].dueDate.substring(0, 10)}</td>
+          <td class="mdl-data-table__cell--non-numeric">${data[i].title}<br>Weightage: ${data[i].weightage}%<br>Due Date: ${data[i].dueDate.substring(0, 10)}</td>
           <td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick = "markDone(${i})">DONE</button></td>
               </tr> `
     }
@@ -286,7 +286,7 @@ function displayList4(data) {
     // <br>Weightage: ${data[i].weightage}
     if (data[i].submissionDate != null){
       output += `<tr>
-                <td class="mdl-data-table__cell--non-numeric">${data[i].title}<br>Weightage: ${data[i].weightage}<br>Date Submited: ${data[i].submissionDate.toLocaleString().substring(0, 10)}</td>
+                <td class="mdl-data-table__cell--non-numeric">${data[i].title}<br>Weightage: ${data[i].weightage}%<br>Date Submited: ${data[i].submissionDate.toLocaleString().substring(0, 10)}</td>
               </tr> `;
     }
   }
