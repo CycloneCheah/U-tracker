@@ -20,7 +20,8 @@ class Assignment
         this._dueDate = dueDate;
         this._weightage = weightage;
         this._completedPercentage = 0;
-        this._progressData = [[dueDate, this._completedPercentage]];
+        let d = new Date();
+        this._progressData = [[d, this._completedPercentage]];
     }
 
     // Accessor
