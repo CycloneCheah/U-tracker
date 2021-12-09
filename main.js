@@ -186,6 +186,8 @@ function displayList3(data) {
     }
     else {
       var days = 0;
+      var count = 0;
+      var stop = false;
     for (let i = 0; i < arr.length; i++) {
       var progress = 0;
       for (let j = 0; j < arr[i]; j++) { 
@@ -194,8 +196,16 @@ function displayList3(data) {
       </tr> `
       progress += 100/arr[i];
       days += 1;
-        }
+      count += 1;
+      if (count == 2) {
+        stop = true;
+        break;
       }
+        }
+        if (stop == true) {
+          break;
+        }
+        }
     }
         // close the table
           output += `</tbody>
