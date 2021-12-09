@@ -49,9 +49,9 @@ var addAssignment = function(){
     // Get message Id
     let titleMsg = document.getElementById("assignmentName_msg");
     let weightageMsg = document.getElementById("weightage_msg");
-    // let dueDateMsg = document.getElementById("dueDate_msg");
+    let dueDateMsg = document.getElementById("dueDate_msg");
 
-    if (checkWeightage(weightage) && title.length > 0){
+    if (checkWeightage(weightage) && title.length > 0 && dueDate != "" && new Date(dueDate).getTime() >= new Date().getTime()){
         list.addAssignment(title, dueDate, weightage);
         updateLocalStorage(APP_DATA_KEY, list);
         alert("Your assessment has been added to the assessment list");
@@ -68,18 +68,12 @@ var addAssignment = function(){
             weightageMsg.innerText = "Weightage input is invalid"; // Display appropriate error message on HTML page
         }
         // To print error message when wrong date input
-        // if(!checkDate(dueDate))
-        // {
-        //     dueDateMsg.innerText = "Please select a valid date";
-        // }
+        if(dueDate == 0 || new Date(dueDate).getTime() < new Date().getTime() )
+        {
+            dueDateMsg.innerText = "Please select a valid date";
+        }
         return; // End the execution of the function
     }
 }
-
-
-// // Restrict date
-// let dateRef = document.getElementById("Test_DatetimeLocal");
-// let now = new Date();
-// dateRef.min = createFormatedDate(now);
 
 
