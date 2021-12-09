@@ -96,7 +96,9 @@ class List
     }
 
     removeAssignment(index) {
+        let temp = this._queue[index];
         this._queue.splice(index, 1); // Removing a student from the queue
+        return temp;
     }
 
     getAssignment(index) {
