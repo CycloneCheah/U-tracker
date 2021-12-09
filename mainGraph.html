@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <title>U-tracker</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-pink.min.css" />
+    <link rel="icon" type="image/png" href="https://cdn.discordapp.com/attachments/917613137031745559/917613280221093980/unknown.png"/>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <!-- for the chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+    <style>
+        body {
+            background-color: beige;
+        }
+
+        #title{
+            text-align: center;
+            font-family: "Times New Roman", Times, serif;
+        }
+        
+        #chartDiv{
+            background-color: white;
+            margin-top: 20px;
+        }
+
+    </style>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+
+<body>
+    <!-- Uses a transparent header that draws on top of the layout's background -->
+    <div class="demo-layout-transparent mdl-layout mdl-js-layout">
+        <header class="mdl-layout__header ">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title">U-tracker</span>&nbsp;&nbsp;&nbsp;
+                <img src="https://cdn.discordapp.com/attachments/917613137031745559/917613280221093980/unknown.png" alt="Our logo" width = 125px>
+                <div class="mdl-layout__header-row"></div>
+                <div class="mdl-layout__header-row"></div>
+                <span class="mdl-layout-title">
+                    <!-- <h2>Assignment Details</h2> -->
+                </span>
+                <!-- Title -->
+                <div class="mdl-layout-spacer"></div>
+                <!-- Raised button -->
+                <div id="backToView">
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                        onclick="backToView()">HOME</button>
+                </div>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">Navigation</span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="index.html">Main Page</a>
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+            <h3 id="title">Overall Progress on All Assessments</h3>
+            <div id="chartDiv" class="mdl-cell--12-col mdl-grid" style="width: 800px;">
+                <canvas id="myChart"></canvas>
+            </div>
+        </main>
+    </div>
+    <script src="shared.js"></script>
+    <script>
+        // Get access to the assignment
+        let assignmentIndex = localStorage.getItem(ASSIGNMENT_INDEX_KEY);
+        let assignment = list.getAssignment(assignmentIndex);
+
+        // Get data of the assignment
+        let title = assignment.title;
+
+        // Get tag and update
+    
+
+        // Access chart tag
+        let myChart = document.getElementById("myChart").getContext('2d');
+
+        // Prepare the values of the data
+        let days = [1, 2, 3, 4, 5];
+        let yourProgress = [100, 70, 65, 30, 0];
+        let expectedProgress = [100, 75, 50, 25, 0];
+
+        // Prepare how and what data is presented
+        let data = {
+            labels: days,
+            datasets: [{
+                label: 'Your Progress',
+                backgroundColor: 'rgb(252, 136, 21)',
+                borderColor: 'rgb(252, 136, 21)',
+                data: yourProgress,
+                stepped: true
+            },
+            {
+                label: 'Expected Progress',
+                backgroundColor: 'rgb(27, 119, 64)',
+                borderColor: 'rgb(27, 119, 64)',
+                data: expectedProgress,
+                stepped: true
+            }]
+        };
+
+
+        // Type of chart and the configurations
+        const config = {
+            type: 'line',
+            data: data,
+            options: {}
+        };
+
+        // Create and attach the chart
+        const theChart = new Chart(myChart, config);
+    </script>
+    
+</body>
+
+</html>
