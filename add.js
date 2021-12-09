@@ -14,31 +14,31 @@ var checkWeightage = function(weightage){
     }
 }
 
-var checkDate = function(date){
-    // Check if date is valid
-    return date != "" && parseInt(new Date(date).getHour()) > parseInt(new Date().getHour());
-}
+// var checkDate = function(date){
+//     // Check if date is valid
+//     return date != "" && parseInt(new Date(date).getHour()) > parseInt(new Date().getHour());
+// }
 
-var addZero = function(num){
-    // To make sure each number string is 2 char long
-    // input is string of numerical char
-    while (num.length < 2) {
-        num = "0" + num;
-    }
-    return num;
-}
+// var addZero = function(num){
+//     // To make sure each number string is 2 char long
+//     // input is string of numerical char
+//     while (num.length < 2) {
+//         num = "0" + num;
+//     }
+//     return num;
+// }
 
 
-var createFormatedDate = function(date){
-    // To create date and time the following format based on Date object input
-    //2021-12-09T17:52
-    let output = date.getFullYear() + "-";
-    output += addZero(date.getMonth()) + "-";
-    output += "0" + addZero(date.getDate());
-    output += "T" + addZero(date.getHours()) + ":";
-    output += addZero(date.getMinutes());
-    return output;
-}
+// var createFormatedDate = function(date){
+//     // To create date and time the following format based on Date object input
+//     //2021-12-09T17:52
+//     let output = date.getFullYear() + "-";
+//     output += addZero(date.getMonth()) + "-";
+//     output += "0" + addZero(date.getDate());
+//     output += "T" + addZero(date.getHours()) + ":";
+//     output += addZero(date.getMinutes());
+//     return output;
+// }
 
 var addAssignment = function(){
     // Get input value
