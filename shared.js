@@ -20,6 +20,7 @@ class Assignment
         this._dueDate = dueDate;
         this._weightage = weightage;
         this._completedPercentage = 0;
+        this._progressData = [[dueDate, this._completedPercentage]];
     }
 
     // Accessor
@@ -37,6 +38,10 @@ class Assignment
 
     get completedPercentage(){
         return this._completedPercentage;
+    }
+
+    get progress(){
+        return this._progressData;
     }
 
     set dueDate(newDueDate) {
@@ -61,6 +66,11 @@ class Assignment
         this._dueDate = assignmentDataObject._dueDate;
         this._weightage = assignmentDataObject._weightage;
         this._completedPercentage = assignmentDataObject._completedPercentage;
+        this._progressData = assignmentDataObject._progressData;
+    }
+
+    addProgressData(date, percentage){
+        this._progressData.push([date, percentage]);
     }
 }
 
