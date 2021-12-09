@@ -203,5 +203,5 @@ function backToView() {
 
 function directToGraph(){
     window.location.assign("graph.html");
-}
+} 
 
