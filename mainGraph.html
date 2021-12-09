@@ -70,11 +70,23 @@
     <script>
         // Access chart tag
         let myChart = document.getElementById("myChart").getContext('2d');
-
+        
         // Prepare the values of the data
-        let days = [1, 2, 3, 4, 5];
-        let yourProgress = [100, 70, 65, 30, 0];
-        let expectedProgress = [100, 75, 50, 25, 0];
+        let days = [];
+        let yourProgress = [];
+        let expectedProgress = [];
+        
+        let current = new Date();
+        current = current.getDate();
+        for (let i = 0; i < 7; i++){
+            days.push(current + i);
+        }
+
+        // for (){
+
+        // }
+        
+        
 
         // Prepare how and what data is presented
         let data = {
@@ -124,9 +136,8 @@
 
         // Create and attach the chart
         const theChart = new Chart(myChart, config);
-        theChart.options.scales['y'].title = "Meow";
     </script>
-    
+    <!-- <script src="mainGraph.js"></script> -->
 </body>
 
 </html>

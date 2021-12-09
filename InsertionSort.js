@@ -33,8 +33,10 @@ function myFunction() {
         arry = insertionSort(arry);
         arry = arry.toString();
     }
-    document.getElementById("return").innerHTML += arry;
-    document.getElementById("return").innerHTML += "<br>____________________________________________________<br><br>";
+    // document.getElementById("return").innerHTML += arry;
+    // document.getElementById("return").innerHTML += "<br>____________________________________________________<br><br>";
   }
+
+
 
 

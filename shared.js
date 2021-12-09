@@ -84,7 +84,6 @@ class Assignment
     }
 
     addProgressData(date, percentage){
-        console.log("yes");
         this._progressData.push([date, percentage]);
     }
 }

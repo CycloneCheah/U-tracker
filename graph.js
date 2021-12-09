@@ -1,9 +1,8 @@
 // Get access to the assignment
 let assignmentIndex = localStorage.getItem(ASSIGNMENT_INDEX_KEY);
 let assignment = list.getAssignment(assignmentIndex);
-console.log(typeof assignment);
-let d = new Date(2021, 12, 12, 14, 58, 11, 0);
-assignment = new Assignment("Hello", d, 50);
+// let d = new Date(2021, 12, 12, 14, 58, 11, 0);
+// assignment = new Assignment("Assignment 1", d, 50);
 
 // Get data of the assignment
 let title = assignment.title;
@@ -20,15 +19,20 @@ let days = [];
 let yourProgress = [];
 let expectedProgress = [];
 
-let progress = assignment.progressData;     // Get the progress data
+let progress = assignment._progressData;     // Get the progress data
 
 let currentIndex = 0;
 let previousIndex = 0;          // set up indexes
 
-console.log(progress.length);
-let currentDate = parseInt(progress[0][0].getDate());
+var obtainDate = function(date){
+    date = date.substring(8, 10);
+    return parseInt(date);
+}
+
+let currentDate = progress[0][0];
+currentDate = obtainDate(currentDate);
 let previousDate = currentDate - 1;     // declare date variables
-let lastDay = parseInt(assignment.dueDate.getDate());
+let lastDay = obtainDate(assignment.dueDate);
 let duration = lastDay - currentDate + 1;
 
 for (let i = 0; i < duration; i++){
@@ -37,10 +41,10 @@ for (let i = 0; i < duration; i++){
 }
 
 while (currentIndex < progress.length){
-    currentDate = parseInt(progress[currentIndex][0].getDate());
+    currentDate = obtainDate(progress[currentIndex][0]);
     if (previousDate == currentDate - 1){       // if previous date and current date is only 1 day apart
         days.push(currentDate);
-        yourProgress.push(progress[currentIndex][1]);
+        yourProgress.push(100 - progress[currentIndex][1]);
         previousIndex = currentIndex;
     }
     else{ // if they are not one day apart, fill in the days in between with the previous progress
