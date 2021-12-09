@@ -21,9 +21,6 @@ let expectedProgress = [];
 
 let progress = assignment._progressData;     // Get the progress data
 
-let currentIndex = 0;
-let previousIndex = 0;          // set up indexes
-
 var obtainDate = function(date){
     date = date.substring(8, 10);
     return parseInt(date);
@@ -37,22 +34,28 @@ let duration = lastDay - currentDate + 1;
 
 for (let i = 0; i < duration; i++){
     days.push(currentDate + i);
-    expectedProgress.push(100 - i * 100 / duration);
+    expectedProgress.push(100 - (i + 1) * 100 / duration);
 }
 
+let currentIndex = 0; // set up indexes
 while (currentIndex < progress.length){
     currentDate = obtainDate(progress[currentIndex][0]);
     if (previousDate == currentDate - 1){       // if previous date and current date is only 1 day apart
-        days.push(currentDate);
-        yourProgress.push(100 - progress[currentIndex][1]);
-        previousIndex = currentIndex;
-    }
-    else{ // if they are not one day apart, fill in the days in between with the previous progress
+        yourProgress.push(100 - progress[currentIndex][1]);     // add the current progress into the list         // increment previousIndex
         previousDate++;
-        yourProgress.push(progress[previousIndex][1]);
     }
+    else if (previousDate == currentDate){ // if 0 day apart
+        yourProgress[yourProgress.length - 1] = (100 - progress[currentIndex][1]);
+    }
+    else{ // if they are more than one day apart, fill in the days in between with the previous progress
+        previousDate++;
+        yourProgress.push(progress[currentIndex - 1][1]);
+    }
+    
     currentIndex++;
 }
+
+// expectedProgress[expectedProgress.length - 1] = 0;
 
 // Prepare how and what data is presented
 let data = {
