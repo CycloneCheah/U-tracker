@@ -68,16 +68,6 @@
     </div>
     <script src="shared.js"></script>
     <script>
-        // Get access to the assignment
-        let assignmentIndex = localStorage.getItem(ASSIGNMENT_INDEX_KEY);
-        let assignment = list.getAssignment(assignmentIndex);
-
-        // Get data of the assignment
-        let title = assignment.title;
-
-        // Get tag and update
-    
-
         // Access chart tag
         let myChart = document.getElementById("myChart").getContext('2d');
 
@@ -110,11 +100,31 @@
         const config = {
             type: 'line',
             data: data,
-            options: {}
+            options: {
+                scales: {
+                    y: {
+                        display: true,
+                        axis: 'y',
+                        title: {
+                            display: true,
+                            text: 'Task'
+                        }
+                    },
+                    x: {
+                        display: true,
+                        axis: 'y',
+                        title: {
+                            display: true,
+                            text: 'Date'
+                        }
+                    }
+                }     
+            }
         };
 
         // Create and attach the chart
         const theChart = new Chart(myChart, config);
+        theChart.options.scales['y'].title = "Meow";
     </script>
     
 </body>

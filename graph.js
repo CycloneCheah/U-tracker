@@ -74,7 +74,26 @@ let data = {
 const config = {
     type: 'line',
     data: data,
-    options: {}
+    options: {
+        scales: {
+            y: {
+                display: true,
+                axis: 'y',
+                title: {
+                    display: true,
+                    text: 'Task'
+                }
+            },
+            x: {
+                display: true,
+                axis: 'y',
+                title: {
+                    display: true,
+                    text: 'Date'
+                }
+            }
+        }     
+    }
 };
 
 // Create and attach the chart
