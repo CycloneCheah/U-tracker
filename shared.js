@@ -40,7 +40,7 @@ class Assignment
         return this._completedPercentage;
     }
 
-    get progress(){
+    get progressData(){
         return this._progressData;
     }
 
@@ -93,9 +93,7 @@ class List
     }
 
     removeAssignment(index) {
-        let temp = this._queue[index];
         this._queue.splice(index, 1); // Removing a student from the queue
-        return temp;
     }
 
     getAssignment(index) {
@@ -173,17 +171,6 @@ else // If data does not exsit in local storage
     // Update local storage 
     updateLocalStorage(APP_DATA_KEY, list);
 }
-
-let updateList = new List();
-if (checkData(APP_DATA_KEY)) // If data exsits in local storage
-{
-    list.fromData(retrieveData(APP_DATA_KEY));
-}
-else // If data does not exsit in local storage
-{
-    // Update local storage 
-    updateLocalStorage(APP_DATA_KEY, list);
-} 
 
 // direct to main page 
 // params: N/A
