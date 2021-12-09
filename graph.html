@@ -71,8 +71,8 @@
         // Get access to the assignment
         let assignmentIndex = localStorage.getItem(ASSIGNMENT_INDEX_KEY);
         let assignment = list.getAssignment(assignmentIndex);
-        let d = new Date();
-        assignment = new Assignment("PornHub", d, 50);
+        // let d = new Date(2021, 12, 12, 14, 58, 11, 0);
+        // assignment = new Assignment("Hello", d, 50);
 
         // Get data of the assignment
         let title = assignment.title;
@@ -87,15 +87,22 @@
         // Prepare the values of the data
         let days = [];
         let yourProgress = [];
-        let expectedProgress = [100, 75, 50, 25, 0];
+        let expectedProgress = [];
 
         let progress = assignment.progressData;     // Get the progress data
 
         let currentIndex = 0;
         let previousIndex = 0;          // set up indexes
-        let currentDate = parseInt();
-        
+
+        let currentDate = parseInt(progress[0][0].getDate());
         let previousDate = currentDate - 1;     // declare date variables
+        let lastDay = assignment.dueDate.getDate();
+        let duration = lastDay - currentDate + 1;
+ 
+        for (let i = 0; i < duration; i++){
+            days.push(currentDate + i);
+            expectedProgress.push(100 - i * 100 / duration);
+        }
 
         while (currentIndex < progress.length){
             currentDate = parseInt(progress[currentIndex][0].getDate());
@@ -106,13 +113,10 @@
             }
             else{ // if they are not one day apart, fill in the days in between with the previous progress
                 previousDate++;
-                days.push(previousDate);
                 yourProgress.push(progress[previousIndex][1]);
             }
             currentIndex++;
         }
-
-        
 
         // Prepare how and what data is presented
         let data = {
