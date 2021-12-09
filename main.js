@@ -6,17 +6,17 @@ function view(index) {
     window.location.assign("view.html");
   }
 
-// //   function markDone(index, queueIndex) {
-// //     let r = confirm("Mark this student as 'done'?"); // r ← confirm method() to confirm 'mark' action with user 
-// //     if (r == true) {
-// //       consultSession.removeStudent(index, queueIndex); // Using removeStudent method to remove student from queue
-// //       updateLocalStorage(APP_DATA_KEY, consultSession); // Update local Storage with the latest data
-// //       displayCurrentQueue(consultSession._queue); // Call Task 10 function
-// //     }
-// //     else {
-// //       return 0;
-// //     }
-// //   }
+ function markDone(index) {
+    let r = confirm("Mark as done?"); // r ← confirm method() to confirm 'mark' action with user 
+    if (r == true) {
+     list.removeAssignment(index); // Using removeAssignment method to remove assignment from completed list
+      updateLocalStorage(APP_DATA_KEY, list); // Update local Storage with the latest data
+      displayList2(list._queue); // Call Task 10 function
+    }
+    else {
+      return 0;
+    }
+  }
 // function displayCurrentList(data) {
 //     let listContentRef = document.getElementById("listContent");
 //     listContentRef.innerHTML = "";
@@ -39,7 +39,7 @@ function view(index) {
 //       output += "</ul>";
 //     }
 //     listContentRef.innerHTML = output;
-//   }
+//   }// /
   
 //   displayCurrentList(list._queue); 
 
@@ -100,19 +100,20 @@ function view(index) {
     let output = `<table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp">
     <thead>
       <tr>
-        <th class="mdl-data-table__cell--non-numeric">View Details</th>
         <th class="mdl-data-table__cell--non-numeric">Assessment List</th>
+        <th class="mdl-data-table__cell--non-numeric">View Details</th>
       </tr>
     </thead>
     <tbody>
     `;
   // printing each assignment 
     for (let i = 0; i < data.length; i++) {
-  // test if it is an upcoming or past trip
+          if (data[i].completedPercentage >= 0 && data[i].completedPercentage < 100){
           output += `<tr>
-                <td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick = "view(${i})">View</button></td>
                 <td class="mdl-data-table__cell--non-numeric">${data[i].title}<br>Due Date: ${data[i].dueDate.substring(0,10)}</td>
+                <td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick = "view(${i})">View</button></td>
               </tr> `
+          }
     }
       // close the table
       output += `</tbody>
@@ -123,33 +124,6 @@ function view(index) {
   // code to run function
   displayList(list._queue);
 
-  function displayList2(data) {
-
-    let listTableRef2 = document.getElementById('listTable2');
-    // print table to html
-    // initial table code
-    let output = `<table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp">
-    <thead>
-      <tr>
-        <th class="mdl-data-table__cell--non-numeric">Completed List</th>
-      </tr>
-    </thead>
-    <tbody>
-    `;
-  // printing each assignment 
-    for (let i = 0; i < data.length; i++) {
-  // test if it is an upcoming or past trip
-          output += `<tr>
-                <td class="mdl-data-table__cell--non-numeric">${data[i].title}<br>Due Date: ${data[i].dueDate.substring(0,10)}</td>
-              </tr> `
-        }
-      // close the table
-      output += `</tbody>
-      </table>`
-      // return results
-      listTableRef2.innerHTML = output;
-    }
-  
     function displayList2(data) {
 
     let listTableRef2 = document.getElementById('listTable2');
@@ -159,16 +133,19 @@ function view(index) {
     <thead>
       <tr>
         <th class="mdl-data-table__cell--non-numeric">Completed List</th>
+        <th class="mdl-data-table__cell--non-numeric">Status</th>
       </tr>
     </thead>
     <tbody>
     `;
   // printing each assignment 
     for (let i = 0; i < data.length; i++) {
-  // test if it is an upcoming or past trip
+          if (data[i].completedPercentage == 100){
           output += `<tr>
           <td class="mdl-data-table__cell--non-numeric">${data[i].title}<br>Due Date: ${data[i].dueDate.substring(0,10)}</td>
+          <td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick = "markDone(${i})">DONE</button></td>
               </tr> `
+          }
         }
       // close the table
       output += `</tbody>
@@ -196,7 +173,7 @@ function view(index) {
     for (let i = 0; i < data.length; i++) {
   // test if it is an upcoming or past trip
           output += `<tr>
-                <td class="mdl-data-table__cell--non-numeric">${data[i].title}</td>
+                <td class="mdl-data-table__cell--non-numeric">${data[i].title}<br> </td>
               </tr> `
         }
       // close the table
@@ -225,7 +202,7 @@ function view(index) {
     for (let i = 0; i < data.length; i++) {
   // test if it is an upcoming or past trip
           output += `<tr>
-                <td class="mdl-data-table__cell--non-numeric">${data[i].title}</td>
+                <td class="mdl-data-table__cell--non-numeric">${data[i].title}<br> </td>
               </tr> `
         }
       // close the table
