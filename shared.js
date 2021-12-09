@@ -2,6 +2,7 @@
 // Keys for local storage
 const ASSIGNMENT_INDEX_KEY = "assignmentIndex";
 const APP_DATA_KEY = "listAppData";
+const RECENT_UPDATE_LIST_KEY = "recentUpdateData";
 
 class Assignment
 {   /* Base class for the 2 ways of splitting the assignment
@@ -172,6 +173,20 @@ else // If data does not exsit in local storage
     // Update local storage 
     updateLocalStorage(APP_DATA_KEY, list);
 }
+
+// Create or reassign
+
+let recentUpdateList = new List(); // consultSession ← new Session instance 
+if (checkData(RECENT_UPDATE_LIST_KEY)) // If data exsits in local storage
+{
+    recentUpdateList.fromData(retrieveData(RECENT_UPDATE_LIST_KEY));
+}
+else // If data does not exsit in local storage
+{
+    // Update local storage 
+    updateLocalStorage(RECENT_UPDATE_LIST_KEY, recentUpdateList);
+}
+
 
 // direct to main page 
 // params: N/A
