@@ -10,13 +10,6 @@
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <!-- for the chart -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
-    <script type = "text/javascript" src = "https://www.gstatic.com/charts/loader.js">
-    </script>
-    <script type = "text/javascript" src = "https://www.google.com/jsapi">
-    </script>
-    <script type = "text/javascript">
-       google.charts.load('current', {packages: ['corechart']});     
-    </script>
     <style>
         body {
             background-color: beige;
@@ -62,9 +55,9 @@
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link" href="index.html">Main Page</a>
             </nav>
-            <nav class="mdl-navigation">
+            <!-- <nav class="mdl-navigation">
                 <a class="mdl-navigation__link" href="mainGraph.html">Overall Progress</a>
-            </nav>
+            </nav> -->
         </div>
         <main class="mdl-layout__content">
             <h3 id="title">Assessment</h3>
@@ -94,28 +87,29 @@
         let yourProgress = [100, 70, 65, 30, 0];
         let expectedProgress = [100, 75, 50, 25, 0];
 
-        let progress = assignment.progressData;     // Get the progress data
+        let progress = assignment._progressData;     // Get the progress data
 
         let currentIndex = 0;
         let previousIndex = 0;          // set up indexes
-
-        let currentDate = parseInt(progress[0][0].getDate());
+        console.log(typeof progress);
+        let currentDate = parseInt();
+        
         let previousDate = currentDate - 1;     // declare date variables
 
-        while (currentIndex < progress.length){
-            currentDate = parseInt(progress[currentIndex][0].getDate());
-            if (previousDate == currentDate - 1){       // if previous date and current date is only 1 day apart
-                days.push(currentDate);
-                yourProgress.push(progress[currentIndex][1]);
-                previousIndex = currentIndex;
-            }
-            else{ // if they are not one day apart, fill in the days in between with the previous progress
-                previousDate++;
-                days.push(previousDate);
-                yourProgress.push(progress[previousIndex][1]);
-            }
-            currentIndex++;
-        }
+        // while (currentIndex < progress.length){
+        //     currentDate = parseInt(progress[currentIndex][0].getDate());
+        //     if (previousDate == currentDate - 1){       // if previous date and current date is only 1 day apart
+        //         days.push(currentDate);
+        //         yourProgress.push(progress[currentIndex][1]);
+        //         previousIndex = currentIndex;
+        //     }
+        //     else{ // if they are not one day apart, fill in the days in between with the previous progress
+        //         previousDate++;
+        //         days.push(previousDate);
+        //         yourProgress.push(progress[previousIndex][1]);
+        //     }
+        //     currentIndex++;
+        // }
 
         
 
