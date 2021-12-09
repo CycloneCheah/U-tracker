@@ -178,3 +178,7 @@ function backToView() {
     window.location.assign("view.html");
 }
 
+function directToGraph(){
+    window.location.assign("graph.html");
+}
+

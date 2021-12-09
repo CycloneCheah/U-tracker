@@ -10,7 +10,7 @@ Description: Contains global codes that will run when view.js is loaded
 // Retrieve stored indexes from local storage 
 let assignmentIndex = localStorage.getItem(ASSIGNMENT_INDEX_KEY);
 let assignment = new Assignment();
-assignment = list.getAssignment(assignmentIndex);;
+assignment = list.getAssignment(assignmentIndex);
 
 
     let assignmentDetailsTableRef = document.getElementById('assignmentDetailsTable');
@@ -42,3 +42,20 @@ assignment = list.getAssignment(assignmentIndex);;
       // return results
       assignmentDetailsTableRef.innerHTML = output;
 
+var updateProgressButton = function(){
+  // get the updated percentage
+  let percentage = document.getElementById("progressInput").value;
+
+  if (percentage > 0 &&  percentage + assignment._completedPercentage <= 100){
+        // Change the completed percentage and store it back to local
+      assignment.updateCompletion(percentage);
+      list.setAssignment(ASSIGNMENT_INDEX_KEY, assignment);
+
+      alert("Your progress has been updated successfully");
+  }
+  else{
+      // get message id
+      let msg = document.getElementById("updateProgressMsg");
+      msg.innerText = "Percentage updated is invalid";
+  }
+}
