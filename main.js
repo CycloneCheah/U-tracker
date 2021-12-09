@@ -166,6 +166,8 @@ function displayList3(data) {
     // document.getElementById("arrr").innerHTML = arr[0]; - 0
     var mark = -1;
     if (average==0 || same == true) {
+      var count = 0;
+      var check = false;
       var progress = [];
       for (let i = 0; i < arr.length; i++) {
         progress.push(0);
@@ -180,7 +182,15 @@ function displayList3(data) {
         if (progress[i] == 100) {
           mark += 1;
         }
+        count += 1;
+        if (count == 2) {
+          check = true;
+          break;
+        }
       }
+          }
+          if (check == true) {
+            break;
           }
         }
     }
