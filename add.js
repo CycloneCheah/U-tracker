@@ -61,7 +61,7 @@ var addAssignment = function(){
     else {
         if (title.length <= 0) // Check if title input is blank
         {
-            titleMsg.innerText = "Title title input is invalid"; // Display appropriate error message on HTML page
+            titleMsg.innerText = "Title input is invalid"; // Display appropriate error message on HTML page
         }
         if (!checkWeightage(weightage) || weightage <= 0 || weightage > 100) // Check if weightage input is blank or studentId does not follow the right format
         {
