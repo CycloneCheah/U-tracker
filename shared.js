@@ -2,6 +2,7 @@
 // Keys for local storage
 const ASSIGNMENT_INDEX_KEY = "assignmentIndex";
 const APP_DATA_KEY = "listAppData";
+const RECENT_UPDATE_LIST_KEY = "recentUpdateData";
 
 class Assignment
 {   /* Base class for the 2 ways of splitting the assignment
@@ -20,6 +21,8 @@ class Assignment
         this._dueDate = dueDate;
         this._weightage = weightage;
         this._completedPercentage = 0;
+        let d = new Date();
+        this._progressData = [[d, this._completedPercentage]];
     }
 
     // Accessor
@@ -37,6 +40,10 @@ class Assignment
 
     get completedPercentage(){
         return this._completedPercentage;
+    }
+
+    get progressData(){
+        return this._progressData;
     }
 
     set dueDate(newDueDate) {
@@ -61,6 +68,12 @@ class Assignment
         this._dueDate = assignmentDataObject._dueDate;
         this._weightage = assignmentDataObject._weightage;
         this._completedPercentage = assignmentDataObject._completedPercentage;
+        this._progressData = assignmentDataObject._progressData;
+    }
+
+    addProgressData(date, percentage){
+        console.log("yes");
+        this._progressData.push([date, percentage]);
     }
 }
 
@@ -162,6 +175,20 @@ else // If data does not exsit in local storage
     updateLocalStorage(APP_DATA_KEY, list);
 }
 
+// Create or reassign
+
+let recentUpdateList = new List(); // consultSession ← new Session instance 
+if (checkData(RECENT_UPDATE_LIST_KEY)) // If data exsits in local storage
+{
+    recentUpdateList.fromData(retrieveData(RECENT_UPDATE_LIST_KEY));
+}
+else // If data does not exsit in local storage
+{
+    // Update local storage 
+    updateLocalStorage(RECENT_UPDATE_LIST_KEY, recentUpdateList);
+}
+
+
 // direct to main page 
 // params: N/A
 function backToMain() {
@@ -180,5 +207,5 @@ function backToView() {
 
 function directToGraph(){
     window.location.assign("graph.html");
-}
+} 
 

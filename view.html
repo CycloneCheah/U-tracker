@@ -7,16 +7,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-pink.min.css" />
     <link rel="icon" type="image/png" href="https://cdn.discordapp.com/attachments/917613137031745559/917613280221093980/unknown.png"/>
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    <!-- for the chart -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
-    <script type = "text/javascript" src = "https://www.gstatic.com/charts/loader.js">
-    </script>
-    <script type = "text/javascript" src = "https://www.google.com/jsapi">
-    </script>
-    <script type = "text/javascript">
-       google.charts.load('current', {packages: ['corechart']});     
-    </script>
     <style>
         body {
             background-color: beige;
@@ -79,6 +69,9 @@
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link" href="index.html">Main Page</a>
             </nav>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="mainGraph.html">Overall Progress</a>
+            </nav>
         </div>
         <main class="mdl-layout__content">
             <div class="mdl-cell--12-col mdl-grid">
@@ -93,6 +86,12 @@
             <div class="mdl-grid">
                 <div class="mdl-cell mdl-cell--4-col mdl-cell--2-col-tablet mdl-cell--hide-phone"></div>
                 <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="number" pattern="^([1-3]{1})([0-9]{7})$"
+                            id="progressInput" required>
+                        <label class="mdl-textfield__label" for="weightage">Update your progress percentage</label>
+                        <span id="updateProgressMsg" class="mdl-textfield__error"></span>
+                    </div>
                     <button
                         class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
                         onclick="directToGraph()">
