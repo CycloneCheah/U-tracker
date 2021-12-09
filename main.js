@@ -9,9 +9,22 @@ function view(index) {
 function markDone(index) {
   let r = confirm("Mark as done?"); // r ← confirm method() to confirm 'mark' action with user 
   if (r == true) {
-    list.removeAssignment(index); // Using removeAssignment method to remove assignment from completed list
+    let completed = list.removeAssignment(index); // Using removeAssignment method to remove assignment from completed list
+    
+    // set the completion date
+    let date = new Date();
+    completed._submissionDate = date;
+
+    // Upload to recent update list
+    recentUpdateList.addCreatedAssignment(completed); 
+
+    // Update local storage
     updateLocalStorage(APP_DATA_KEY, list); // Update local Storage with the latest data
+    updateLocalStorage(RECENT_UPDATE_LIST_KEY, recentUpdateList);
+
+    // Update display
     displayList2(list._queue); // Call Task 10 function
+    displayList4(recentUpdateList._queue);
   }
   else {
     return 0;
@@ -218,9 +231,12 @@ function displayList4(data) {
   // printing each assignment 
   for (let i = 0; i < data.length; i++) {
     // test if it is an upcoming or past trip
-    output += `<tr>
-                <td class="mdl-data-table__cell--non-numeric">${data[i].title}<br> </td>
-              </tr> `
+    // <br>Weightage: ${data[i].weightage}
+    if (data[i].submissionDate != null){
+      output += `<tr>
+                <td class="mdl-data-table__cell--non-numeric">${data[i].title}<br>Date Submited: ${data[i].submissionDate.substring(0, 10)}</td>
+              </tr> `;
+    }
   }
   // close the table
   output += `</tbody>
@@ -229,6 +245,6 @@ function displayList4(data) {
   listTableRef4.innerHTML = output;
 }
 // code to run function
-displayList4(list._queue);
+displayList4(recentUpdateList._queue);
 
  
