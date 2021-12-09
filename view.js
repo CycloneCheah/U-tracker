@@ -59,8 +59,3 @@ var updateProgressButton = function(){
       msg.innerText = "Percentage updated is invalid";
   }
 }
-
-
-var viewGraph = function(){
-    window.location.assign("test.html");
-}
