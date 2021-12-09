@@ -143,36 +143,57 @@ function displayList3(data) {
     }
     // average number of days @Step 4
     var average = Math.floor(Math.max(...arr)/arr.length);
+    var same = checkSame(arr);
+    if (average != 0 && same == false) {
+    var residue = 0;
     for (let i=0; i < arr.length; i++) {
       if (arr[i] < average) {
-        var residue = average - arr[i];
-        arr[i+1] += residue;
+        residue = average - arr[i];
       }
       else {
         if (average != 0) {
-        arr[i] = average;
-        }
+        arr[i] = average + residue;
+        residue = 0;
+      }
       }
     }
+    } 
           // Step 5
           // if update, the algorithm will die
     // document.getElementById("arrr").innerHTML = arr[0]; - 0
-    var days = 0;
+    var mark = -1;
+    if (average==0 || same == true) {
+      var progress = [];
+      for (let i = 0; i < arr.length; i++) {
+        progress.push(0);
+      }
+      for (let days = 0; days < Math.max(...arr); days++) {
+        for (let i = 0; i < arr.length; i++) {
+          if (mark < i) { 
+          output += `<tr>
+          <td class="mdl-data-table__cell--non-numeric">${gettingDate(days)}<br>${anotherarr[i]}<br>Percentage to be done:${gettingPercentage(arr[i], progress[i])}</td>
+        </tr> `
+        progress[i] += 100/arr[i];
+        if (progress[i] == 100) {
+          mark += 1;
+        }
+      }
+          }
+        }
+    }
+    else {
+      var days = 0;
     for (let i = 0; i < arr.length; i++) {
       var progress = 0;
-      for (let j = 0; j < arr[i]-days; j++) { 
+      for (let j = 0; j < arr[i]; j++) { 
         output += `<tr>
-        <td class="mdl-data-table__cell--non-numeric">${gettingDate(days)}<br>${anotherarr[i]}<br>Percentage to be done:${gettingPercentage(arr[i]-days, progress)}</td>
+        <td class="mdl-data-table__cell--non-numeric">${gettingDate(days)}<br>${anotherarr[i]}<br>Percentage to be done:${gettingPercentage(arr[i], progress)}</td>
       </tr> `
-      progress += 100/arr[i]-days;
+      progress += 100/arr[i];
+      days += 1;
         }
-        if ((i+1<arr.length) && arr[i+1]==days+1) {
-          //pass;
-        }
-        else {
-          days += 1;
       }
-      }
+    }
         // close the table
           output += `</tbody>
           </table>`
@@ -202,8 +223,16 @@ function displayList3(data) {
     //       output += `</tbody>
     //       </table>`
 
+    function checkSame(arr) {
+      for (let i = 0; i < arr.length-1; i++) {
+        if (arr[i] == arr[i+1]) {
+          return true;
+        }
+      }
+      return false;
+    }
     function gettingPercentage(number, progress) {
-      return progress + "%" + "~>" + (progress + 100/number) + "%";
+      return parseInt(progress) + "%" + "~>" + parseInt(progress + 100/number) + "%";
     }
     function gettingDate(number) {
       var date = new Date();
