@@ -46,13 +46,13 @@ var updateProgressButton = function(){
   // get the updated percentage
   let percentage = parseFloat(document.getElementById("progressInput").value);
   
-  if (percentage > 0 && (percentage <= 100)){
+  if (percentage > 0 && (percentage <= 100) && percentage > assignment.completedPercentage){
       // Change the completed percentage
       assignment._completedPercentage = percentage;
 
       // Update the progressData
       let current = new Date();
-      assignment.addProgressData(current, assignment._completedPercentage);
+      assignment.addProgressData(current, assignment.completedPercentage);
       list.setAssignment(assignmentIndex, assignment);
       
       // Send alert
