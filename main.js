@@ -108,11 +108,12 @@ function view(index) {
     `;
   // printing each assignment 
     for (let i = 0; i < data.length; i++) {
-  // test if it is an upcoming or past trip
+          if (data[i].completedPercentage >= 0 && data[i].completedPercentage < 100){
           output += `<tr>
                 <td class="mdl-data-table__cell--non-numeric">${data[i].title}<br>Due Date: ${data[i].dueDate.substring(0,10)}</td>
                 <td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick = "view(${i})">View</button></td>
               </tr> `
+          }
     }
       // close the table
       output += `</tbody>
@@ -139,11 +140,12 @@ function view(index) {
     `;
   // printing each assignment 
     for (let i = 0; i < data.length; i++) {
-  // test if it is an upcoming or past trip
+          if (data[i].completedPercentage == 100){
           output += `<tr>
           <td class="mdl-data-table__cell--non-numeric">${data[i].title}<br>Due Date: ${data[i].dueDate.substring(0,10)}</td>
           <td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick = "markDone(${i})">DONE</button></td>
               </tr> `
+          }
         }
       // close the table
       output += `</tbody>
