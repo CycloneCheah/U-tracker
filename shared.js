@@ -23,6 +23,7 @@ class Assignment
         this._completedPercentage = 0;
         let d = new Date();
         this._progressData = [[d, this._completedPercentage]];
+        this._submissionDate = null;
     }
 
     // Accessor
@@ -46,9 +47,19 @@ class Assignment
         return this._progressData;
     }
 
+    get submissionDate(){
+        return this._submissionDate;
+    }
+
+    // Mutators
     set dueDate(newDueDate) {
         this._dueDate = newDueDate;
     }
+
+    set submissionDate(date) {
+        this._submissionDate = date;
+    }
+
 
     // Method
     updateCompletetion(percentageDone){
@@ -69,6 +80,7 @@ class Assignment
         this._weightage = assignmentDataObject._weightage;
         this._completedPercentage = assignmentDataObject._completedPercentage;
         this._progressData = assignmentDataObject._progressData;
+        this._submissionDate = assignmentDataObject._submissionDate;
     }
 
     addProgressData(date, percentage){
@@ -95,8 +107,14 @@ class List
         this._queue.push(newAssignment);
     }
 
+    addCreatedAssignment(assignment){
+        this._queue.push(assignment);
+    }
+
     removeAssignment(index) {
+        let temp = this._queue[index];
         this._queue.splice(index, 1); // Removing a student from the queue
+        return temp;
     }
 
     getAssignment(index) {
