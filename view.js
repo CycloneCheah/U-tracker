@@ -44,14 +44,15 @@ assignment = list.getAssignment(assignmentIndex);
 
 var updateProgressButton = function(){
   // get the updated percentage
-  let percentage = document.getElementById("progressInput").value;
-
-  if (percentage > 0 &&  percentage + assignment._completedPercentage <= 100){
-        // Change the completed percentage and store it back to local
-      assignment.updateCompletion(percentage);
-      list.setAssignment(ASSIGNMENT_INDEX_KEY, assignment);
-
+  let percentage = parseFloat(document.getElementById("progressInput").value);
+  
+  if (percentage > 0 && ((percentage + assignment.completedPercentage) <= 100)){
+      // Change the completed percentage and store it back to local
+      assignment._completedPercentage = assignment._completedPercentage + percentage;
+      list.setAssignment(assignmentIndex, assignment);
       alert("Your progress has been updated successfully");
+      updateLocalStorage(APP_DATA_KEY, list);
+      location.reload("view.html");
   }
   else{
       // get message id
