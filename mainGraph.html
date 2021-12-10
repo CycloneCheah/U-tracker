@@ -46,7 +46,7 @@
                 <!-- Raised button -->
                 <div id="backToView">
                     <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-                        onclick="backToView()">HOME</button>
+                        onclick="backToMain()">HOME</button>
                 </div>
             </div>
         </header>
@@ -73,18 +73,92 @@
         
         // Prepare the values of the data
         let days = [];
-        let yourProgress = [];
-        let expectedProgress = [];
+        let yourProgress = [0, 0, 0, 0, 0, 0, 0];
+        let expectedProgress = [0, 0, 0, 0, 0, 0, 0];
         
-        let current = new Date();
-        current = current.getDate();
-        for (let i = 0; i < 7; i++){
-            days.push(current + i);
+        var obtainDate = function(date){
+            date = date.substring(8, 10);
+            return parseInt(date);
         }
 
-        // for (){
+        let current = new Date();
+        current = parseInt(current.getDate()) - 3;
+        
+        
+        // Expected Progress
+        let addDay = 0;
+        let duration = 0;
+        let progressPerDay = 0;
+        let assessment = null;
+        let due = 0;
+    
+        let assignmentListIndex = 0;
+        let num_of_assessment = [0, 0, 0, 0, 0, 0, 0];
+        while (assignmentListIndex < list._queue.length) {
+            assessment = list.getAssignment(assignmentListIndex);
+            due = obtainDate(assessment.dueDate);
+            if (due >= current){
+                addDay = obtainDate(assessment.progressData[0][0]);
+                duration = due - addDay + 1;
+                progressPerDay = 100 / duration;
+                let k = 0;
+                for (let i = 0; i < duration; i++){
+                    if (addDay + i >= current && k < 7){
+                        k = addDay + i - current;
+                        expectedProgress[k] += 100 - progressPerDay * i / duration;
+                        num_of_assessment[k] += 1;
+                        k++;
+                    }
+                    
+                }
+            }
+            assignmentListIndex++;
+        }
 
-        // }
+        // Your progress
+        let progress = [];
+        let currentDate = 0;
+        for (let i = 0; i < list._queue.length; i++){
+            assessment = list.getAssignment(i);
+            due = obtainDate(assessment.dueDate);
+            progress = assessment.progressData;
+            if (due >= current){
+                let j = 0;
+                while (j < progress.length){
+                    if (currentDate >= current){
+                        currentDate = obtainDate(progress[j][0]);
+                        while (j + 1 < progress.length){
+                            newDate = obtainDate(progress[j + 1][0]);
+                            if (newDate == currentDate){
+                                j++;
+                            }
+                            else{
+                                break;
+                            }
+                        }
+                        yourProgress[currentDate - current] += 100 - progress[k][1];
+                    }
+                    j++;
+                }
+            }
+        }
+
+        // Expected progress and date
+        for (let i = 0; i < 7; i++){
+            days.push(current + i);
+            if (num_of_assessment[i] > 0){
+                expectedProgress[i] = expectedProgress[i] / num_of_assessment[i];
+                yourProgress[i] = yourProgress[i] / num_of_assessment[i];
+                console.log(yourProgress[i]);
+            }
+            // if (yourProgress[i] == 0){
+            //     yourProgress[i] = null;
+            // }
+            // if (expectedProgress[i] == 0){
+            //     expectedProgress[i] = null;
+            // }
+        }
+
         
         
 
@@ -119,7 +193,7 @@
                         axis: 'y',
                         title: {
                             display: true,
-                            text: 'Task'
+                            text: 'Percentage of Task to be Completed'
                         }
                     },
                     x: {
