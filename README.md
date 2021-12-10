@@ -25,12 +25,10 @@ Function: It adds assignments with valid user inputs in all fields to the list. 
 Function: It retrieves information from the localStorage and display it to the user. It allows the users to update their progress on the assignment and to view the stepped burndown graph.
 5. graph.js
 Function: It is responsbile for configuring the stepped burndown graph on the expected progess and the user's inputted progress for each assignment. It is linked to graph.html.
-6. mainGraph.js 
-Function: It is responsible for configuring the stepped burndown graph on the expected progess and the user's inputted progress for all the assignments.It is linked to 
 
 HTML files and functions 
 1. index.html - main page of the application and displays the tables for the assessment list, completed list, recommendation list and recent updates. 
 2. add.html - page which allows users to add their assignments to the assessment list. 
 3. view.html - page which displays the details of each assignemnt and allows users to update their update their progress on the assignment. 
 4. graph.html - page which displays the stepped burndown graph on the expected progess and the user's inputted progress for each assignment.
-5. mainGraph.html - page which displays the stepped burndown graph on the expected progess and the user's inputted progress for all the assignments. 
+5. mainGraph.html - page which displays the stepped burndown graph on the expected progess and the user's inputted progress for all the assignments. Also configures the stepped burndown graph on the expected progess and the user's inputted progress for all the assignments.
