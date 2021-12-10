@@ -15,14 +15,14 @@ JS files and functions
 Function: It contains all the classes e.g., the Assignment class and List class that will be used in the majority of the js files. It includes methods to check, retrieve and update the localStorage. It also includes functions which directs to designated pages upon clicking the button on the navigation bar. It is linked to every html file. 
 2. main.js 
 Function: It includes printing and updating of the tables on the main page i.e., index.html and functions which allows users to view details of on going assignments and remove assignments that are submitted. It is linked to index.html.
-The function displatList1 is responsible for displaying the assessment list and view details.
+The function displayList1 is responsible for displaying the assessment list and view details.
 The function displayList2 is responsible for displaying the completed list and status.
 The function displayList3 is responsible for displaying the recommendation list. 
 The function displayList4 is responsbile for displaying the recent updates. 
 3. add.js
 Function: It adds assignments with valid user inputs in all fields to the list. It is linked to add.html.
 4. view.js
-Function: It retrieves information from the localStorage and display it to the user. It allows the users to update their progress on the assignment and to view the stepped burndown graph.
+Function: It retrieves information from the localStorage and displays it to the user. It allows the users to update their progress on the assignment and to view the stepped burndown graph.
 5. graph.js
 Function: It is responsbile for configuring the stepped burndown graph on the expected progess and the user's inputted progress for each assignment. It is linked to graph.html.
 
