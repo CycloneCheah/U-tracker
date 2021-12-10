@@ -26,6 +26,7 @@ var obtainDate = function(date){
     return parseInt(date);
 }
 
+
 let currentDate = progress[0][0];
 currentDate = obtainDate(currentDate);
 let previousDate = currentDate - 1;     // declare date variables
